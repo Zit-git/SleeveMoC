@@ -1,5 +1,8 @@
 ZOHO.embeddedApp.on("PageLoad",function(data){
 var asynFun = async () =>{
+    ZOHO.CRM.UI.Resize({height:"600",width:"500"}).then(function(data){
+        console.log(data);
+    });
 if(data && data.Entity){
     let productFields = await ZOHO.CRM.META.getFields({"Entity":"Products"});
     let sleeveMocValue = productFields.fields.filter(field => field.api_name == "Sleeve_MoC");
